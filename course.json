@@ -852,7 +852,8 @@
             }
         ],
         "source_file": "course.yml",
+        "subtitle": "Brno",
         "timezone": "Europe/Prague",
-        "title": "MicroPython"
+        "title": "PyWorking: MicroPython"
     }
 }
