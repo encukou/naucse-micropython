@@ -1,0 +1,56 @@
+<h2 id="micropython_taky_python">MicroPython – taky Python
+<a href="#micropython_taky_python" class="header-link">#</a>
+</h2>
+<p>Tak jako máš na počítači nainstalovaný operační
+systém, na vývojové desce je takzvaný <em>firmware</em>,
+program, který ovládá všechny ty drátky,
+čipy a světýlka, co v ní jsou.
+My používáme firmware zvaný <em>MicroPython</em>,
+který navíc rozumí jazyku Python a umí provádět pythonní příkazy. Zkus si to!
+Tři zobáčky, které vyskočí když se k destičce připojíš (příp. když pak
+zmáčkneš Enter), přišly
+ze zařízení, které teď netrpělivě čeká na příkaz.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
+<span class="go">Hello World</span>
+</pre></div><p>Téměř vše, co používáš v Pythonu na počítači,
+umí MicroPython taky: čísla, řetězce, seznamy, třídy,
+výjimky, moduly a tak dál.
+Některé detaily ale jsou trochu osekané, aby se všechno
+vešlo do extrémně malého prostoru.
+Zkus si, jak se liší efekt následujících příkazů
+od „velkého” Pythonu:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s1">&#39;Výsledek je </span><span class="si">{</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div><p>Nejdůležitější věc, která je osekaná, je <em>standardní
+knihovna</em> – většina modulů, které na
+počítači můžeš naimportovat, v MicroPythonu chybí.
+U modulů jako <code>turtle</code> je to pochopitelné,
+ale v rámci šetření místem chybí i moduly jako <code>random</code>.
+Většinou to příliš nevadí – malá zařízení se používají
+na jiné věci než ta velká – ale je potřeba si na to
+dát pozor.</p>
+<p>Některé věci ze standardní knihovny se dají najít
+ve zjednodušené formě na jiných místech.
+Například ačkoliv modul <code>random</code> chybí,
+náhodné číslo od 0 do 255 se dá získat pomocí:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">urandom</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urandom</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">61</span>
+</pre></div><h2 id="ovladani_konzole">Ovládání konzole
+<a href="#ovladani_konzole" class="header-link">#</a>
+</h2>
+<p>Při psaní složitějšího kódu si všimneš, že konzole MicroPythonu automaticky odsazuje.
+To je pro malé programy pohodlné, ale umí to i znepříjemnit život – hlavně když chceš
+kód do konzole zkopírovat odjinud.</p>
+<p>Proto má konzole MicroPythonu speciální vkládací mód, který automatické odsazování vypíná.
+Aktivuje se pomocí <kbd>Ctrl</kbd>+<kbd>E</kbd> a ukončuje se pomocí <kbd>Ctrl+D</kbd>.</p>
+<p>Zkus si to: zkopíruj následující kód, v konzoli MicroPythonu zmáčkni
+<kbd>Ctrl</kbd>+<kbd>E</kbd>, kód vlož a ukonči vkládání pomocí <kbd>Ctrl+D</kbd>.</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Umi to pocitat do </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;To bude stacit!&#39;</span><span class="p">)</span>
+</pre></div>

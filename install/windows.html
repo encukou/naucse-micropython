@@ -1,0 +1,39 @@
+<h1 id="instalace_pro_windows">Instalace pro Windows
+<a href="#instalace_pro_windows" class="header-link">#</a>
+</h1>
+<h2 id="instalace_ovladace_a_cislo_com_portu">Instalace ovladače a číslo COM portu
+<a href="#instalace_ovladace_a_cislo_com_portu" class="header-link">#</a>
+</h2>
+<div class="admonition note"><p>Tento návod je pro destičky s USB převodníkem CP2102.
+Některé levnější modely používají převodník CH340G.
+Který převodník máš se nejlíp dozvíš od toho, kdo ti destičku poskytl.
+Ovladač k CH340G se dá dostat
+<a href="https://iotta.cz/ovladace-pro-ch340g/">z tohoto blogu</a>.</p>
+</div><p>Po připojení destičky se Windows nejspíš pokusí nainstalovat ovladač.
+To je dobře.
+Kdyby instalace potřebovala vybrat soubor, ovladač stáhni <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">ze stránek výrobce</a>, rozbal a vyber.</p>
+<p>Ze systémového menu (klávesa Windows) otevři <em>správce zařízení</em>
+(Device Manager).
+Pod <em>Ostatní zařízení</em> (Other Devices) nebo <em>Ports (COM &amp; LPT)</em>
+najdi položku obsahující <em>CP2102</em> nebo <em>CP210x</em>.</p>
+<p>Je-li u položky ikonka varování ⚠, stáhni ovladač <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">ze stránek výrobce</a>,
+pak klikni na položku pravým tlačítkem, vyber aktualizaci ovladače a použij
+dříve stažený ovladač.</p>
+<p>Jestli ikonka ⚠ chybí (nebo zmizela), na konci jména položky by mělo
+být číslo COM portu – například <code>(COM13)</code>. Číslo si zapamatuj.</p>
+<h2 id="instalace_a_nastaveni_putty">Instalace a nastavení PuTTY
+<a href="#instalace_a_nastaveni_putty" class="header-link">#</a>
+</h2>
+<p>Pak si nainstaluj program
+<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a>
+(<code>putty.exe</code>) a spusť ho.
+V konfiguračním okýnku zaškrtni <em>Connection Type: Serial</em> a
+do <em>Serial line:</em> zadej svůj COM port.
+Pak přepni v seznamu vlevo na <em>Serial</em> (úplně dole) a nastav <em>Speed</em> na <em>115200</em>
+a <em>Flow Control</em> na <em>None</em>:</p>
+<p><span class="figure"><a href="naucse:static?filename=putty-config.jpg"><img src="naucse:static?filename=putty-config.jpg" alt="Obrázek nastavení PuTTY"></a></span></p>
+<p>Potom zpátky v kategorii <em>Session</em> můžeš nastavení uložit pro příště:
+do políčka <em>Saved Sessions</em> zadej <em>MicroPython</em> a klikni <em>Save</em>.</p>
+<p>Nakonec klikni <em>Open</em>. Mělo by se otevřít
+okýnko podobné konzoli, kde se, když zmáčkneš
+na modulu <code>RST</code>, objeví nakonec tři zobáčky: <code>&gt;&gt;&gt;</code>.</p>

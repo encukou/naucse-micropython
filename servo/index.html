@@ -1,0 +1,70 @@
+<h2 id="servomotor">Servomotor
+<a href="#servomotor" class="header-link">#</a>
+</h2>
+<p>Čas na další součástku! Tentokrát to bude <em>servomotor</em>.</p>
+<p>Servomotor je součástka, která má v sobě zabudovaný
+ovladač, se kterým si naše zařízení může povídat
+jednoduchým „elektronickým jazykem” – <em>protokolem</em>.
+Motorku můžeš posílat impulzy a podle délky impulzu
+se servomotor natočí.
+Při krátkých impulzech se natočí víc na jednu stranu,
+při dlouhých na druhou.
+Impulzy musíš posílat neustále, jinak se servomotor
+vypne.</p>
+<p>K servomotorku se dodávají různé nástavce, kterými se pak připojují
+otáčené věci.
+Pro začátek si vezmi „pacičku“ která čouhá na jednu stranu
+a nasaď ji na motorek.
+Nástavec se pak dá se připevnit šroubkem, ale na první experimenty
+to nebude potřeba.</p>
+<p>Na rozdíl od bzučítka, kde o výšce tónu rozhodovala
+frekvence (<code>freq</code>) – kolikrát za vteřinu
+se ozve lupnutí – a LED, kde o intenzitě rozhodovala
+střída (<code>duty</code>) – poměr mezi dobou kdy
+dioda svítí a kdy nesvítí – u servomotoru rozhoduje
+tzv. <em>šířka pulzu</em>: jak dlouho se napětí udrží
+na 3,3 V než se přepne zpátky na 0 V.
+<!-- XXX: Actual typical pulse widths --></p>
+<p>V praxi to znamená, že můžeš nastavit <code>freq</code>
+na 50 Hz, a <code>duty</code> měnit cca od 35
+(úplně vlevo) přes 77 (uprostřed) po 120 (úplně vpravo).</p>
+<p>Dost ale teorie, pojďme si to vyzkoušet! Napřed musíš motorek zapojit:</p>
+<ul>
+<li>hnědý drátek (zem) na <code>G</code>,</li>
+<li>červený drátek (napájení) na <code>3V</code> a</li>
+<li>oranžový drátek (data) na <code>D4</code>.</li>
+</ul>
+<p>Nožička <code>D4</code> odpovídá <code>Pin(2)</code>, takže kód k otáčení motorku je:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+
+<span class="n">pin_motorku</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">pwm</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">pin_motorku</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">duty</span><span class="o">=</span><span class="mi">77</span><span class="p">)</span>
+<span class="n">pwm</span><span class="o">.</span><span class="n">duty</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
+</pre></div><p>Zkus motorkem otáčet nastavováním <code>duty</code> na 35 do 120.
+Kdyby se náhodou stalo, že se modul restartuje a
+konzole přestane fungovat, zkus ho odpojit a znovu
+připojit. Kdyby to nepomohlo, motorek ti dneska
+nebude fungovat. Za chvíli si řekneme proč; zatím (jsi-li na kurzu)
+se přidej do dvojice k někomu, komu to funguje.</p>
+<h2 id="poznamka_o_napajeni">Poznámka o napájení
+<a href="#poznamka_o_napajeni" class="header-link">#</a>
+</h2>
+<p>K tomu, aby se otočil motor, je potřeba mnohem víc
+energie než k rozsvícení světýlka.
+Z USB z počítače té energie dostaneš docela málo,
+proto můžou být s motorkem problémy.</p>
+<p>Jak to řešit, až si přestaneš hrát a budeš chtít motorkem otáčet „doopravdy”?</p>
+<p>Servo a destičku můžeš napájet zvlášť:
+například servo z baterií a destičku dál z USB.
+V tomhle případě je důležité:</p>
+<ul>
+<li>Napětí baterie musí odpovídat tomu, co zvládne tvůj servomotor (typicky 3-7 voltů)</li>
+<li>Všechny připojené součástky musí mít propojenou zem (<code>GND</code> na destičce,
+hnědý drát servomotoru, <code>-</code> baterie).</li>
+</ul>
+<p>Zapojení pak bude následující:</p>
+<ul>
+<li><code>-</code> baterie na hnědý drátek serva (zem) <em>a zároveň</em> na <code>GND</code> desky</li>
+<li><code>+</code> baterie na červený drátek serva (napájení)</li>
+<li><code>D4</code> desky na oranžový drátek serva (data)</li>
+</ul>

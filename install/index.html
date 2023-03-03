@@ -1,0 +1,51 @@
+<h2 id="instalace">Instalace
+<a href="#instalace" class="header-link">#</a>
+</h2>
+<p>Nejdříve propoj modul s počítačem přes USB kabel,
+jako kdybys připojoval/a třeba mobil.</p>
+<div class="admonition note"><p>Je potřeba použít kvalitní datový kabel.
+Nekvalitní nebo nedatové kabely (např. spousta kabelů k
+nabíječkám) jsou často nepoužitelné.</p>
+</div><h2 id="instalace_codempremotecode">Instalace <code>mpremote</code>
+<a href="#instalace_codempremotecode" class="header-link">#</a>
+</h2>
+<p>S modulem si budeme “povídat” pomocí speciálního programu jménem <code>mpremote</code>.
+Je poměrně nový a nemáme s ním tolik zkušeností; kdyby na tvém počítači
+nefungoval tak se koukni na starší ale ověřenější návody dole.</p>
+<p>Nainstaluj si <code>mpremote</code> do virtuálního prostředí:</p>
+<div class="admonition warning"><p>Při instalaci pozor na překlepy!
+Knihovnu na stažení může nahrát kdokoli a některé knihovny můžou
+být „zavirované“.
+Instaluješ ověřenou knihovnu <code>mpremote</code> (<strong>M</strong>icro<strong>P</strong>ython <strong>remote</strong>).
+Jiné můžou být „zavirované“ -- podobný program na Internet může nahrát
+kdokoli.
+Kdybys omylem nainstaloval/a něco jiného, pověz o tom odborníkovi,
+který zkontroluje co se ztalo.</p>
+</div><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(env)</span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mpremote
+</pre></div><p>Pak spusť příkaz <code>mpremote</code>. Měl by se objevit následující text.</p>
+<div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(env)</span><span class="gp">$ </span>mpremote
+<span class="go">Connected to MicroPython at /dev/ttyUSB0</span>
+<span class="go">Use Ctrl-] to exit this shell</span>
+
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div><p>Stiskni Enter a objeví se známé tři „zobáčky“, za které můžeš psát
+příkazy Pythonu:</p>
+<div class="highlight"><pre><span></span><span class="go">Connected to MicroPython at /dev/ttyUSB0</span>
+<span class="go">Use Ctrl-] to exit this shell</span>
+
+<span class="go">&gt;&gt;&gt; 1+1</span>
+<span class="go">2</span>
+</pre></div><p>Jak napovídá vypsaný text, pomocí <kbd>Ctrl</kbd>+<kbd>]</kbd> můžeš
+<code>mpremote</code> ukončit.</p>
+<h2 id="ostatni_navody">Ostatní návody
+<a href="#ostatni_navody" class="header-link">#</a>
+</h2>
+<p>Kdyby <code>mpremote</code> nefungovalo, postupuj podle operačního systému na svém počítači:</p>
+<ul>
+<li><a href="naucse:page?lesson=micropython/install&amp;page=linux">Linux</a> (<code>picocom</code>)</li>
+<li><a href="naucse:page?lesson=micropython/install&amp;page=macos">macOS</a> (<code>screen</code>)</li>
+<li><a href="naucse:page?lesson=micropython/install&amp;page=windows">Windows</a> (PuTTY)</li>
+</ul>
+<p>Kdyby něco nefungovalo, poraď se s koučem.</p>
+<p>Po zprovoznění <code>picocom</code>, PuTTY nebo <code>screen</code>, pravděpodobně začne fungovat
+i <code>mpremote</code>. Zkus ho znovu, později se bude hodit!</p>

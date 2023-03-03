@@ -1,0 +1,17 @@
+<h2 id="dalsi_tlacitko">Další tlačítko
+<a href="#dalsi_tlacitko" class="header-link">#</a>
+</h2>
+<p>Teď si vezmi modul s tlačítkem a připoj ho k destičce:
+<code>GND</code> vždycky na <code>G</code>, <code>VCC</code> vždycky na <code>3V</code> a
+<code>OUT</code> na <code>D1</code>.</p>
+<p>Tlačítko funguje tak, že <code>OUT</code> spojí buď s <code>VCC</code> (<code>3V</code>)
+nebo <code>GND</code>, podle toho, jestli je tlačítko stisknuté.
+(A navíc to taky teda svítí, ale to je teď vedlejší.)</p>
+<p>Zkus si, jestli se zvládneš MicroPythonu zeptat, jestli je tlačítko zapnuté.
+Mělo by to být podobné jako u příkladu s tlačítkem <code>FLASH</code>.</p>
+<h2 id="samostatne_tlacitko">Samostatné tlačítko
+<a href="#samostatne_tlacitko" class="header-link">#</a>
+</h2>
+<p>U samostatného tlačítka připoj <code>C</code> na <code>GND</code> a <code>NO</code> na <code>D1</code> (nebo jinou nožičku).</p>
+<p>Vývod <code>NC</code> (angl. <em>not connected</em>, nezapojeno) nemusíš připojovat nikam,
+je tam kvůli mechanické stabilitě.</p>

@@ -1,0 +1,22 @@
+<h1 id="instalace_pro_macos">Instalace pro macOS
+<a href="#instalace_pro_macos" class="header-link">#</a>
+</h1>
+<p>V příkazové řádce zadej:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>screen<span class="w"> </span>/dev/tty.usbmodem*<span class="w"> </span><span class="m">115200</span>
+</pre></div><p>a stiskni Enter.
+Pak na modulu zmáčkni <code>RST</code>.
+Měly by se nakonec objevit tři zobáčky, <code>&gt;&gt;&gt;</code>.</p>
+<p>Nefunguje-li to, zadej</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>ls<span class="w"> </span>/dev/tty.*
+</pre></div><p>a vyber jméno zařízení které přísluší tvé destičce.
+(Neboj se si nechat poradit od někoho zkušenějšího.)
+Toto jméno použij místo <code>/dev/tty.usbmodem*</code> v příkazu <code>screen</code> výše.</p>
+<p>Není-li jméno zařízení vidět, je možná potřeba nainstalovat ovladač pro
+USB převodník CP2102.
+Ten se dá stáhnout <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">ze stránek výrobce</a>.</p>
+<div class="admonition note"><p>Odkaz je pro destičky s USB převodníkem CP2102.
+Některé levnější modely používají převodník CH340G.
+Který převodník máš se nejlíp dozvíš od toho, kdo ti destičku poskytl.
+Ovladač k CH340G se dá dostat
+<a href="https://iotta.cz/ovladace-pro-ch340g/">z tohoto blogu</a>.</p>
+</div>

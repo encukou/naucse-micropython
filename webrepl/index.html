@@ -1,0 +1,43 @@
+<h2 id="webrepl">WebREPL
+<a href="#webrepl" class="header-link">#</a>
+</h2>
+<p>ESP8266 byl původně navržen i jako čip pro WiFi a i s MicroPythonem se umí připojit k síti.
+Dokonce se přes WiFi dá i ovládat.</p>
+<p>Otevři si stránku <a href="http://micropython.org/webrepl/">micropython.org/webrepl</a>,
+přes kterou budeš po připojení s destičkou komunikovat.</p>
+<p>Poté se buď připoj k existující WiFi síti (Eduroam fungovat nebude) nebo
+použij destičku jako samostatný <em>access point</em>:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Existující síť:</span>
+
+<span class="n">ESSID</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">PASSWORD</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="kn">import</span> <span class="nn">network</span>
+<span class="n">wlan</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
+<span class="n">wlan</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;connecting to network...&#39;</span><span class="p">)</span>
+    <span class="n">wlan</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">ESSID</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+        <span class="k">pass</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;network config:&#39;</span><span class="p">,</span> <span class="n">wlan</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">())</span>
+
+<span class="c1"># AP:</span>
+
+<span class="n">ESSID</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">PASSWORD</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">CHANNEL</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="kn">import</span> <span class="nn">network</span>
+<span class="n">ap_if</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">AP_IF</span><span class="p">)</span>
+<span class="n">ap_if</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ap_if</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">essid</span><span class="o">=</span><span class="n">ESSID</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">PASSWORD</span><span class="p">,</span> <span class="n">authmode</span><span class="o">=</span><span class="n">network</span><span class="o">.</span><span class="n">AUTH_WEP</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="n">CHANNEL</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;network config:&#39;</span><span class="p">,</span> <span class="n">ap_if</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">())</span>
+
+<span class="c1"># Nastavení WebREPL:</span>
+
+<span class="kn">import</span> <span class="nn">webrepl_setup</span>
+</pre></div><p>S počítačem se připoj na stejnou síť a na stránce webrepl otevřené výše
+se připoj k IP vypsané z <code>ifconfig()</code>. Měl/a bys dostat konzoli, jako přes
+USB. Pomocí WebREPL lze nejen zadávat interaktivní příkazy, ale i nahrávat
+soubory.</p>

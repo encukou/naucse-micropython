@@ -1,0 +1,25 @@
+<h2 id="flashovani">Flashování
+<a href="#flashovani" class="header-link">#</a>
+</h2>
+<p>Na našich destičkách je MicroPython už nahraný, ale kdyby sis koupil/a
+vlastní NodeMCU nebo chtěl/a firmware aktualizovat, budeš ho potřebovat umět
+nahrát.</p>
+<p>K tomu je potřeba nástroj <code>esptool</code>, který se dá nainstalovat pomocí:</p>
+<div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(env)</span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>esptool
+</pre></div><p>Po instalaci esptool si stáhni nejnovější stabilní firmware pro ESP8266
+z <a href="https://micropython.org/download/esp8266/">https://micropython.org/download/esp8266/</a>.
+a zadej:</p>
+<div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(env)</span><span class="gp">$ </span>esptool.py<span class="w"> </span>--port<span class="w"> </span>/dev/ttyUSB0<span class="w"> </span>--baud<span class="w"> </span><span class="m">230400</span><span class="w"> </span>write_flash<span class="w"> </span><span class="m">0</span><span class="w"> </span>esp8266-20161110-v1.8.6.bin
+</pre></div><p>Hodnotu pro <code>--port</code> opět doplň podle svého systému – např. <code>/dev/tty.wchusbserial1420</code> na Macu, <code>COM3</code> na Windows.
+Jméno souboru (poslední argument) použij podle toho co jsi stáhl/a.</p>
+<div class="admonition note"><p>Destiček s čipem ESP8266 se vyrábí celá řada různých typů a některé mohou
+potřebovat odlišné nastavení při flashování.
+Popis všech možností nastavení je k nalezení v <a href="https://github.com/espressif/esptool#usage">dokumentaci k esptool</a>.</p>
+<p>Občas je potřeba nastavit <a href="https://docs.espressif.com/projects/esptool/en/latest/esp8266/advanced-topics/spi-flash-modes.html">volbu <code>--flash_mode</code></a>
+na konkrétní hodnotu (<code>qio</code>, <code>qout</code>, <code>dio</code>, <code>dout</code>).
+Kterou přesně je asi nejjednodušší zjistit experimentálně.</p>
+<p>Některé problémy vyřeší nižší rychlost: <code>--baud 112500</code>.</p>
+<p>Některé problémy vyřeší detekce velikosti Flash paměti: <code>--flash_size detect</code>.</p>
+</div><p>Je-li na desce nahraný firmware, tento příkaz by měl fungovat. U jiného
+firmware, případně u poškozeného MicroPythonu, je potřeba při resetu
+(nebo zapojování destičky do USB) držet tlačítko FLASH.</p>

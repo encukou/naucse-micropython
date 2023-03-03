@@ -1,0 +1,98 @@
+<h2 id="prace_se_soubory">Práce se soubory
+<a href="#prace_se_soubory" class="header-link">#</a>
+</h2>
+<div class="admonition note"><p>Budeme používat knihovnu <code>mpremote</code>, se kterou ještě nemáme tolik zkušeností.
+Kdyby něco nefungovalo, zkus kouknout na <a href="naucse:page?lesson=micropython/ampy">starší návod</a>
+který používá knihovnu <code>ampy</code>.</p>
+<p>Jestli se ti <code>mpremote</code> nepovedlo <a href="naucse:page?lesson=micropython/install">zprovoznit</a> a používáš
+<code>picocom</code>, Pytty nebo <code>screen</code>, přejdi na <a href="naucse:page?lesson=micropython/ampy">starší návod</a> hned.</p>
+</div><p>Jak začneš psát trochu složitější programy,
+mohlo by se stát, že tě konzole MicroPythonu začne trochu štvát.
+Špatně se v ní opravují chyby a automatické odsazování funguje jen většinou.
+Jak naštvání předejít?</p>
+<p>Větší kousky kódu – a určitě takové,
+ve kterých je nějaký cyklus, podmínka či funkce –
+si piš v textovém editoru. MicroPythonu pak pošleš celý soubor.</p>
+<p>Zkus si to. Do souboru <code>blikajici_led.py</code> dej následující kód:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="n">pin_diody</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;blik!&#39;</span><span class="p">)</span>
+    <span class="n">pin_diody</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">pin_diody</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div><p>Předpokládám, že
+Ve virtuálním prostředí bys měl/a mít program <code>mpremote</code>.
+<a href="naucse:page?lesson=micropython/install">Návod na instalaci</a></p>
+<p>Jestli máš otevřenou <code>mpremote</code> konzoli, zavři ji pomocí
+<kbd>Ctrl</kbd>+<kbd>]</kbd>.
+Potom <code>mpremote</code> pusť znovu, ale s podpříkazem <code>run</code> a názvem souboru:</p>
+<div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(venv)</span><span class="gp">$ </span>mpremote<span class="w"> </span>run<span class="w"> </span>blikajici_led.py
+</pre></div><p>Program by měl blikat diodou.
+Využívá k tomu funkci <code>time.sleep()</code>, která počká daný počet vteřin –
+tedy <code>time.sleep(1/2)</code> zastaví program na půl sekundy.</p>
+<p>Když zmáčkneš <kbd>Ctrl</kbd>+<kbd>C</kbd>, zavřeš <code>mpremote</code>.
+Program poběží dál, ale neuvidíš výpisy (a chybové hlášky) které posílá.</p>
+<h2 id="nahrani_souboru">Nahrání souboru
+<a href="#nahrani_souboru" class="header-link">#</a>
+</h2>
+<p>Podobně je možné na destičku soubory i nahrávat, jen je potřeba místo
+<code>run</code> použít <code>fs cp</code> se jménem souboru a dvojtečkou:</p>
+<div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(venv)</span><span class="gp">$ </span>mpremote<span class="w"> </span>fs<span class="w"> </span>cp<span class="w"> </span>blikajici_led.py<span class="w"> </span>:
+</pre></div><p>Jak to funguje?  <code>fs cp &lt;odkud&gt; &lt;kam&gt;</code>.
+Dvojtečka označuje soubor na destičce, na rozdíl od souborů na tvém
+„velkém“ počítači.
+Když zadáš dvojtečku samotnou, <code>cp</code> pro soubor na destičce použije stejné
+jméno jako má soubor na „velkém“ disku.</p>
+<p>To že je soubor nahraný si můžeš ověřit pomocí <code>fs ls</code>, který ukáže velikosti
+a jména souborů na destičce:</p>
+<div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(venv)</span><span class="gp">$ </span>mpremote<span class="w"> </span>fs<span class="w"> </span>ls
+<span class="go">ls :</span>
+<span class="go">         183 blikajici_led.py</span>
+<span class="go">         230 boot.py</span>
+</pre></div><h2 id="automaticke_spousteni">Automatické spouštění
+<a href="#automaticke_spousteni" class="header-link">#</a>
+</h2>
+<p>Pokud navíc budeš chtít, aby se program na destičce automaticky spouštěl, musí
+se soubor s programem na destičce jmenovat <code>main.py</code>. <code>mpremote</code> umí soubor při
+kopírování i přejmenovat, když mu při kopírování zadáš za dvojtečkou
+i druhé (nové) jméno:</p>
+<div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(venv)</span><span class="gp">$ </span>mpremote<span class="w"> </span>fs<span class="w"> </span>cp<span class="w"> </span>blikajici_led.py<span class="w"> </span>:main.py
+</pre></div><p>Po úspěšném kopírování máš na destičce nahraný náš program ze souboru
+<code>blikajici_led.py</code> do souboru <code>main.py</code>:</p>
+<div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(venv)</span><span class="gp">$ </span>mpremote<span class="w"> </span>fs<span class="w"> </span>ls
+<span class="go">ls :</span>
+<span class="go">         183 blikajici_led.py</span>
+<span class="go">         183 main.py</span>
+<span class="go">         230 boot.py</span>
+</pre></div><p>Teď už bude tvůj program fungovat
+i bez počítače, takže stačí destičku připojit např. k powerbance
+a dioda se rozbliká.
+Zkus to -- resetuj destičku jedním z těchto způsobů:</p>
+<ul>
+<li>odpojením a opětovným připojením USB kabelu</li>
+<li>tlačítkem RST na destičce</li>
+<li>příkazem <code>mpremote reset</code></li>
+</ul>
+<h2 id="mazani_a_cteni">Mazání a čtení
+<a href="#mazani_a_cteni" class="header-link">#</a>
+</h2>
+<p>Soubor můžeš smazat pomocí příkazu <code>fs rm</code>:</p>
+<div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(venv)</span><span class="gp">$ </span>mpremote<span class="w"> </span>fs<span class="w"> </span>rm<span class="w"> </span>:main.py
+</pre></div><p>Pak by měl být <code>main.py</code> smazaný:</p>
+<div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(venv)</span><span class="gp">$ </span>mpremote<span class="w"> </span>fs<span class="w"> </span>ls
+<span class="go">ls :</span>
+<span class="go">         183 blikajici_led.py</span>
+<span class="go">         230 boot.py</span>
+</pre></div><p>A co že je to <code>boot.py</code>?
+To je program který se spustí po zapojení destičky,
+ještě před <code>main.py</code>.
+Obsahuje nastavení.
+Pomocí <code>fs cat</code> se můžeš podívat co dělá:</p>
+<div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(venv)</span><span class="gp">$ </span>mpremote<span class="w"> </span>fs<span class="w"> </span>cat<span class="w"> </span>boot.py
+<span class="gp">$ </span>mpremote<span class="w"> </span>fs<span class="w"> </span>cat<span class="w"> </span>boot.py
+<span class="gp"># </span>This<span class="w"> </span>file<span class="w"> </span>is<span class="w"> </span>executed<span class="w"> </span>on<span class="w"> </span>every<span class="w"> </span>boot<span class="w"> </span><span class="o">(</span>including<span class="w"> </span>wake-boot<span class="w"> </span>from<span class="w"> </span>deepsleep<span class="o">)</span>
+<span class="go">...</span>
+</pre></div>
