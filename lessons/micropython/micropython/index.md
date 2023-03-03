@@ -18,8 +18,15 @@ Dnes budeme programovat malé zařízení –
 tak malé, že se ho pohodlně schováš v ruce.
 Konkrétně budeme používat „chytrou destičku”, modul zvaný
 *NodeMCU Devkit*, která by měla ležet před tebou.
+
+Na workshopech zapojená v *nepájivém poli* -- barevném kusu plastu.
+Při manipulaci se snaž dotýkat jen toho plastu.
+
+## Vlastní NodeMCU
+
+Když si NodeMCU koupíš, bude v obalu.
 Než ji vyndáš z obalu, měl{{a}} by ses *vybít*:
-dotkni se něčeho kovového, co je spojeno se zemí,
+dotkni se něčeho kovového co je spojeno se zemí,
 třeba radiátoru nebo kovové části schránky nějakého
 spotřebiče, který je zapojený do zásuvky.
 Tím se zbavíš statické elektřiny, která by mohla
@@ -28,15 +35,14 @@ Pak přístroj vyndej z obalu. Snaž se ho držet za
 hrany a příliš se nedotýkat elektroniky a kovových
 částí.
 
-> [note]
-> Obal bude nejspíš roztržený, protože organizátoři
-> na destičku před začátkem kurzu nainstalovali
-> MicroPython.
-
 > [warning]
-> Obal je vodivý a nesmí přijít do styku se zapojenou destičkou,
+> Obal je někdy vodivý a nesmí přijít do styku se zapojenou destičkou,
 > protože by mohl zkratovat její vývody a tím ji zničit.
 > Proto obal raději hned schovej a používej ho jen k transportu destičky.
+
+Vlastní destičku budeš muset před použitím [naflashovat](../flashing).
+
+## Co to tu máme?
 
 Teď, když destičku držíš v ruce, si
 pojďme projít její základní součásti.
@@ -80,8 +86,8 @@ a <code class="part-yellow">FLASH</code>, o kterém si povíme později.
 Po stranách modulu jsou dvě řady
 <span class="part-blue">„nožiček”</span>, na které
 se dá napojit celá řada nejrůznějších hraček.
-Zkontroluj si, jestli jsou všechny nožičky rovné;
-kdyby byla některá ohnutá, tak ji (nejlépe s pomocí
-kouče) narovnej nebo si vezmi jinou destičku.
+Nepoužíváš-li nepájivé pole,
+zkontroluj si, jestli jsou všechny nožičky rovné.
+Kdyby byla některá ohnutá, tak ji opatrně narovnej nebo si vezmi jinou destičku.
 
 <br style='clear: both;'>

@@ -3,7 +3,8 @@
 Pojďme ovládat stejnosměrné motory!
 
 Motory potřebují, na rozdíl od počítače a LED světýlek, celkem hodně elektrické
-energie, a navíc můžou dokonce energii vyrábět (fungují jako dynamo).
+energie.
+Navíc můžou dokonce energii vyrábět (fungují jako dynamo).
 Kdybys je připojil{{a}} přímo k destičce, která na tolik proudu není
 připravená, mohla by se destička zničit.
 
@@ -12,15 +13,15 @@ nebo koly), ale kdybys připojil{{a}} motor z traktoru na mechanismus hodinek,
 moc dlouho by správný čas neukazovaly.
 A motůrek z hodinek by zase nepomohl při orání pole.
 
-Proto použijeme čip s názvem L293D, který elektřinu potřebnou pro “hrubou sílu”
+Použijeme čip s názvem L293D, který elektřinu potřebnou pro “hrubou sílu”
 motorku odstíní od logických signálů z destičky.
 
 Potřebnou energii dodáme z baterií.
 
 Čip je černá krabička, která na sobě má trochu textu, ale ne dost na to,
 abys poznal{{a}} co dělá.
-To je detailně popsáno v takzvaném *datasheetu* – PDF, které vypadne, když
-zadáš „L293D“ do vyhledávače.
+To je detailně popsáno v takzvaném *datasheetu* – PDF, které s truchou štěstí
+vypadne když zadáš „L293D“ do vyhledávače.
 Tam lze najít kompletní popis této součástky včetně diagramu, který ukazuje
 kde najít kterou nožičku:
 
@@ -30,10 +31,10 @@ Všimni si, že nahoře je znázorněné „vykousnutí“ (zde oranžově),
 které najdeš i na součástce.
 Je důležité mít čip správně otočený, jinak nebudeš zapojovat správné nožičky.
 
-Čip posílá do své nožičky `1Y` energii z_`Vpower`, pokud je signál na
+Čip posílá do své nožičky `1Y` energii z `Vpower`, pokud je signál na
 `1A` i `1,2EN` současně. Jinak nožičku `1Y` spojí se zemí (`GND`).
 Podobně pro `2Y` (`2A` i `1,2EN`), `3Y` (`3A` i `3,4EN`), `4Y` (`4A` i `3,4EN`).
-Co to pro nás znamená, je vysvětleno níže.)
+Co to pro nás znamená, je vysvětleno níže.
 
 
 # Zapojení
@@ -66,7 +67,7 @@ musí být na `1Y` jiná hodnota než na `2Y`.
 Pro obě musí být aktivní nožička `1,2EN`, a pak `1A` ovládá `1Y` a
 `2A` ovládá `2Y`.
 
-```
+```python
 from machine import Pin
 
 pin_1a = Pin(5, Pin.OUT)  # D1 na destičce, 1A na čipu
@@ -84,7 +85,7 @@ směrem.
 Pro nastavení rychlosti otáčení se hodí použít obdélníkovou vlnu, PWM,
 nastavenou na nožičce `1,2EN`:
 
-```
+```python
 from machine import Pin
 
 pwm_1 = PWM(pin_12en, freq=100, duty=512)
@@ -97,7 +98,7 @@ pwm_1.duty(256)
 Druhý motorek se dá ovládat podobně, jen s jinými čísly pinů.
 Tady jsou:
 
-```
+```python
 pin_3a = Pin(12, Pin.OUT)  # D6 na destičce, 3A na čipu
 pin_4a = Pin(13, Pin.OUT)  # D7 na destičce, 4A na čipu
 pin_34en = Pin(15, Pin.OUT)  # D8 na destičce, 3,4EN na čipu

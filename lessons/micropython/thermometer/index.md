@@ -6,7 +6,7 @@ pro jednoduchost použití a velmi nízkou cenu.
 
 Stejně jako si MicroPython pomocí speciálního „jazyka” rozumí s LED páskem,
 ovládá i „jazyk” pro komunikaci s teploměrem a řadou dalších zařízení.
-Tento „jazyk“, protokol sběrnice OneWire, má navíc tu výhodu, že se na jednu
+Tento „jazyk“, protokol sběrnice OneWire, má mimojiné tu výhodu, že se na jednu
 nožičku destičky dá připojit hned několik teploměrů a číst teploty
 z každého z nich.
 
@@ -18,12 +18,17 @@ z každého z nich.
 > Pokud je zapojený špatně, začne se velmi rychle zahřívat.
 > V takovém případě jej okamžitě odpoj.
 
+Teploměr potřebuje součástku navíc: *rezistor* o hodnotě 4.7Ω.
+Zapoj si teploměr do prázdného nepájivého pole, ať se všechno vejde.
+
 Otoč teploměr tak, aby jeho „břicho” směřovalo směrem od tebe.
 Následně propoj nožičky teploměru s destičkou takto:
 
 * Levou nožičku propoj s `GND`
 * Prostřední nožičku propoj s `D4`
 * Pravou nožičku propoj s `3V3`
+* Mezi prostřední a pravou nožičku (`D4` a `3V3`) připoj rezistor
+  (na směru nezáleží)
 
 # Měření
 

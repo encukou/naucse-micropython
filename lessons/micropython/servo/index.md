@@ -12,13 +12,20 @@ při dlouhých na druhou.
 Impulzy musíš posílat neustále, jinak se servomotor
 vypne.
 
+K servomotorku se dodávají různé nástavce, kterými se pak připojují
+otáčené věci.
+Pro začátek si vezmi „pacičku“ která čouhá na jednu stranu
+a nasaď ji na motorek.
+Nástavec se pak dá se připevnit šroubkem, ale na první experimenty
+to nebude potřeba.
+
 Na rozdíl od bzučítka, kde o výšce tónu rozhodovala
 frekvence (`freq`) – kolikrát za vteřinu
 se ozve lupnutí – a LED, kde o intenzitě rozhodovala
 střída (`duty`) – poměr mezi dobou kdy
-dioda svítí a kdy nesvítí, u servomotoru rozhoduje
+dioda svítí a kdy nesvítí – u servomotoru rozhoduje
 tzv. *šířka pulzu*: jak dlouho se napětí udrží
-na 3,3 V, než se přepne zpátky na 0 V.
+na 3,3 V než se přepne zpátky na 0 V.
 <!-- XXX: Actual typical pulse widths -->
 
 
@@ -28,9 +35,9 @@ na 50 Hz, a `duty` měnit cca od 35
 
 Dost ale teorie, pojďme si to vyzkoušet! Napřed musíš motorek zapojit:
 
-* hnědý drát (zem) na `G`,
-* červený drát (napájení) na `3V` a
-* oranžový drát (data) na `D4`.
+* hnědý drátek (zem) na `G`,
+* červený drátek (napájení) na `3V` a
+* oranžový drátek (data) na `D4`.
 
 Nožička `D4` odpovídá `Pin(2)`, takže kód k otáčení motorku je:
 
@@ -52,7 +59,7 @@ se přidej do dvojice k někomu, komu to funguje.
 ## Poznámka o napájení
 
 K tomu, aby se otočil motor, je potřeba mnohem víc
-energie, než k rozsvícení světýlka.
+energie než k rozsvícení světýlka.
 Z USB z počítače té energie dostaneš docela málo,
 proto můžou být s motorkem problémy.
 
@@ -62,13 +69,13 @@ Servo a destičku můžeš napájet zvlášť:
 například servo z baterií a destičku dál z USB.
 V tomhle případě je důležité:
 
-* Napětí baterie musí odpovídat tomu, co zvládne tvůj servomotor
+* Napětí baterie musí odpovídat tomu, co zvládne tvůj servomotor (typicky 3-7 voltů)
 * Všechny připojené součástky musí mít propojenou zem (`GND` na destičce,
   hnědý drát servomotoru, `-` baterie).
 
 Zapojení pak bude následující:
 
-* `-` baterie na hnědý drát (zem) serva *a zároveň* na `GND` desky
-* `+` baterie na červený drát (napájení) serva
-* `D4` desky na oranžový drát (data) serva
+* `-` baterie na hnědý drátek serva (zem) *a zároveň* na `GND` desky
+* `+` baterie na červený drátek serva (napájení)
+* `D4` desky na oranžový drátek serva (data)
 

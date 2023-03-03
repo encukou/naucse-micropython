@@ -7,17 +7,21 @@ když ho připojíš ke zdroji napětí, trošku roztáhne.
 Roztažením zatlačí na okolní vzduch a vytvoří tlakovou
 vlnu, která může doputovat až k tvým uším.
 
-Zkus si to – když bzučítko připojíš na `3V`
-a `G` (tentokrát je jedno kterým směrem), uslyšíš tiché lupnutí.
-A podobné lupnutí uslyšíš když součástku zase odpojíš.
+Zkus si to – když jednu nožičku bzučítka připojíš na `GND`
+(tentokrát je jedno kterou) a druhou budeš přepojovat mezi `3V`
+a `GND`, uslyšíš vždy tiché lupnutí.
 
 Co se stane, když budeš napětí připojovat a odpojovat, řekněme, 32× za vteřinu?
-
 Nebo 65×?
 
-Nebo některou z těchto frekvencí?
+{% filter solution %}
+Ozve se tón!
+{% endfilter %}
+
+Zkus si vybrat z následujících frekvencí.·
 Hz – [Hertz](https://en.wikipedia.org/wiki/Hertz) – je jednotka frekvence;
-„49 Hz“ znamená „49× za sekundu“.
+„49 Hz“ znamená „49× za sekundu“, neboli `PWM.freq(49)`.
+MicroPython umí jen celočíselné frekvence, takže zaokrouhluj.
 
 | Nota | Frekvence |
 |:-----|----------:|
@@ -30,5 +34,6 @@ Hz – [Hertz](https://en.wikipedia.org/wiki/Hertz) – je jednotka frekvence;
 | H    | 61,74 Hz  |
 | C2   | 65,41 Hz  |
 
-Naprogramuj písničku! Potřebuješ-li víc not, pusť si [program](static/noty.py),
+Teď si můžeš naprogramovat písničku!
+Potřebuješ-li víc not, pusť si [program](static/noty.py),
 který vypočítá další frekvence.

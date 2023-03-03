@@ -29,6 +29,7 @@ od „velkého” Pythonu:
 >>> print
 >>> import math
 >>> math.pi
+>>> f'Výsledek je {1+1}'
 ```
 
 Nejdůležitější věc, která je osekaná, je *standardní
@@ -59,4 +60,14 @@ To je pro malé programy pohodlné, ale umí to i znepříjemnit život – hlav
 kód do konzole zkopírovat odjinud.
 
 Proto má konzole MicroPythonu speciální vkládací mód, který automatické odsazování vypíná.
-Aktivuje se pomocí <kbd>Ctrl+E</kbd> a ukončuje se pomocí <kbd>Ctrl+D</kbd>.
+Aktivuje se pomocí <kbd>Ctrl</kbd>+<kbd>E</kbd> a ukončuje se pomocí <kbd>Ctrl+D</kbd>.
+
+Zkus si to: zkopíruj následující kód, v konzoli MicroPythonu zmáčkni
+<kbd>Ctrl</kbd>+<kbd>E</kbd>, kód vlož a ukonči vkládání pomocí <kbd>Ctrl+D</kbd>.
+
+```python
+for i in range(20):
+    print('Umi to pocitat do {}!'.format(i))
+print('To bude stacit!')
+```
+

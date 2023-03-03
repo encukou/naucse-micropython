@@ -35,6 +35,7 @@ sessions:
   - lesson: micropython/intro
   - lesson: micropython/input
   - lesson: micropython/output
+  - lesson: micropython/mpremote
   - lesson: micropython/ampy
   - lesson: micropython/pwm
 

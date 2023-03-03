@@ -1,6 +1,6 @@
 ## Další tlačítko
 
-Teď si vezmi tlačítko a připoj ho k modulu:
+Teď si vezmi modul s tlačítkem a připoj ho k destičce:
 `GND` vždycky na `G`, `VCC` vždycky na `3V` a
 `OUT` na `D1`.
 
@@ -10,3 +10,11 @@ nebo `GND`, podle toho, jestli je tlačítko stisknuté.
 
 Zkus si, jestli se zvládneš MicroPythonu zeptat, jestli je tlačítko zapnuté.
 Mělo by to být podobné jako u příkladu s tlačítkem `FLASH`.
+
+
+## Samostatné tlačítko
+
+U samostatného tlačítka připoj `C` na `GND` a `NO` na `D1` (nebo jinou nožičku).
+
+Vývod `NC` (angl. *not connected*, nezapojeno) nemusíš připojovat nikam,
+je tam kvůli mechanické stabilitě.

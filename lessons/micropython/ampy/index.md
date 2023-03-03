@@ -1,4 +1,8 @@
-## Práce se soubory
+## Práce se soubory (`ampy`)
+
+> [warning]
+> Tohle je starší (ale ověřenější) verze návodu.
+> [Novější verze](../mpremote) používá knihovnu `mpremote`.
 
 Jak začneš psát trochu složitější programy,
 mohlo by se stát, že tě konzole MicroPythonu začne trochu štvát.

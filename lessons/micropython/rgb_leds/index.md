@@ -22,15 +22,24 @@ Pojďme pásek zapojit:
 
 * `GND` pásku (bílý drátek) připoj na `G`
 * `DI` (*data in* – zelený drátek) připoj na `D4`
-* `+5V` (červený drátek) připoj na `VIN`.
+* `+5V` (červený drátek) připoj na `Vin`.
 
-Nožička `VIN` poskytuje 5 voltů.
-Pozor na ni: nepřipojuj na ni zařízení, které se s pěti volty nevyrovnají.
+> [warning]
+> Nožička `Vin` poskytuje 5 voltů.
+> Pozor na ni: připojuj na ni jen zařízení které umí pracovat s pěti volty!
+>
+> Například modrá dioda, která je „dělaná“ na 3V, bude s pěti volty svítit
+> velice jasně, ale jen chvilku a pak zhasne navždy.
+> Jiná zařízení múžou být podobně choulostivá.
+>
+> `Vin` znamená *vstupní napětí* (angl. *input voltage*).
+> U USB je to 5V, ale až budeš destičku „krmit“ ze čtyř AAA baterií,
+> na `Vin` bude dokonce 6 voltů.
 
 Máš-li zapojeno, můžeš začít programovat.
-„Jazyk”, kterým „mluví” tenhle LED pásek je trošku
+„Jazyk” kterým „mluví” tenhle LED pásek je trošku
 složitější než signál PWM, ale MicroPython obsahuje
-speciální knihovnu, která s páskem komunikovat umí.
+speciální knihovnu, která s páskem komunikovat umí.
 Vypadá to nějak takhle:
 
 
@@ -46,7 +55,7 @@ np.write()
 </pre>
 
 
-Co znamenají ta čísla (`0` a `255`), na to už jistě přijdeš sám/sama.
+Co znamenají ta čísla (`0` a `255`), na to už jistě přijdeš {{gnd('sám', 'sama')}}.
 Jen při experimentování nezapomeň zavolat
 `np.write()`, tím se informace pošlou do LED pásku.
 

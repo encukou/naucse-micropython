@@ -34,6 +34,9 @@ oprav ji podle následujícího návodu a zkus to znova.
   [703177.062781] usb 1-1.1: ch341-uart converter now attached to <strong>ttyUSB0</strong>
   </pre>
 
+  Jestli tyhle řádky nevidíš, zkus destičku odpojit, znovu zapojit a spustit
+  `dmesg | tail` znovu.
+
   Máš-li místo `ttyUSB0` něco jiného, v příkazu `picocom` to použij místo
   `ttyUSB0`.
 

@@ -10,8 +10,7 @@ Ten první je, že diodám – na rozdíl od žárovek nebo
 zářivek – nevadí časté vypínání a zapínání.
 Opotřebovávají se spíš svícením a časem.
 Druhý je, že lidské oko nestačí zaznamenat pohyby a
-změny, které probíhají rychleji než zhruba za
-setinu vteřiny.
+změny, které trvají míň než zhruba setinu vteřiny.
 
 Pojďme tedy velice rychle blikat – a oblafnout tak naše oči a mozky!
 
@@ -22,9 +21,9 @@ from time import sleep
 pin_diody = Pin(14, Pin.OUT)
 while True:
     pin_diody.value(0)  # vypnout LED
-    sleep(2/100)  # počkat dvě setiny vteřiny
+    sleep(2/1000)  # počkat dvě tisíciny vteřiny
     pin_diody.value(1)  # zapnout LED
-    sleep(1/100)  # počkat jednu setinu vteřiny
+    sleep(1/1000)  # počkat jednu tisícinu vteřiny
 ```
 
 Zkus si pohrát s hodnotami pro `time.sleep`.
@@ -37,6 +36,8 @@ Zkus si pohrát s hodnotami pro `time.sleep`.
 Dokážeš napsat program, který diodu postupně, plynule rozsvítí?
 
 {% filter solution %}
+např.
+
 ```python
 from machine import Pin
 from time import sleep
@@ -48,9 +49,9 @@ while True:
     while True:
         x = x + 1
         pin_diody.value(0)
-        sleep((100-x)/10000)
+        sleep((100-x) / 10000)
         pin_diody.value(1)
-        sleep(x/10000)
+        sleep(x / 10000)
 
         if x > 100:
             break
@@ -93,8 +94,15 @@ pin_diody = Pin(14, Pin.OUT)
 pwm = PWM(pin_diody, freq=50, duty=512)
 ```
 
+Když budeš chtít frekvenci nebo střídu změnit, použij:
+
+```
+pwm.freq(100)
+pwm.duty(256)
+```
+
 Zkus nastavit i nižší frekvenci, třeba 3 nebo 1, ať blikání vidíš přímo!
 
 PWM se dá zrušit metodou `pwm.deinit()`.
 Jako s otvíráním souborů, je dobré po sobě uklidit –
-i když zatím můžeš jednoduše restartovat celé zařízení.
+i když tady můžeš místo toho prostě restartovat celé zařízení.

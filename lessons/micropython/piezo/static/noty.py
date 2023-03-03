@@ -5,4 +5,4 @@ for i in range(88):
     oktava = (i+9) // 12
     nota = '{:2} {}'.format(nazvy[i%12], oktava)
     if __name__ == '__main__':
-        print("{}: {:7.2f}".format(nota, frekvence))
+        print("{}: {:7.2f} Hz".format(nota, frekvence))
