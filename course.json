@@ -4,6 +4,7 @@
         4
     ],
     "course": {
+        "date": "2023-03-04",
         "description": "Základy Pythonu na malém hardware",
         "edit_info": {
             "branch": "mp2023",
@@ -713,16 +714,17 @@
                 "materials": [
                     {
                         "lesson_slug": "micropython/flashing",
-                        "title": "Flashování",
+                        "title": "Flashování (pro organizátory/kouče)",
                         "type": "lesson"
                     }
                 ],
-                "serial": "0",
+                "serial": "-1",
                 "slug": "setup",
                 "source_file": "course.yml",
                 "title": "Nastavení zařízení"
             },
             {
+                "date": "2023-03-04",
                 "materials": [
                     {
                         "lesson_slug": "micropython/install",
@@ -765,12 +767,17 @@
                         "type": "lesson"
                     }
                 ],
-                "serial": "1",
+                "serial": "0",
                 "slug": "intro",
                 "source_file": "course.yml",
+                "time": {
+                    "end": "12:00",
+                    "start": "8:30"
+                },
                 "title": "Úvod"
             },
             {
+                "date": "2023-03-04",
                 "materials": [
                     {
                         "lesson_slug": "micropython/piezo",
@@ -806,11 +813,23 @@
                         "lesson_slug": "micropython/motors",
                         "title": "Motorky",
                         "type": "lesson"
+                    },
+                    {
+                        "title": "Krokový motor",
+                        "type": "lesson"
+                    },
+                    {
+                        "title": "7-segmentový displej",
+                        "type": "lesson"
                     }
                 ],
-                "serial": "2",
+                "serial": "1",
                 "slug": "devices",
                 "source_file": "course.yml",
+                "time": {
+                    "end": "17:00",
+                    "start": "12:00"
+                },
                 "title": "Další periferie"
             },
             {
@@ -826,13 +845,14 @@
                         "type": "lesson"
                     }
                 ],
-                "serial": "3",
+                "serial": "2",
                 "slug": "comms",
                 "source_file": "course.yml",
                 "title": "Komunikace"
             }
         ],
         "source_file": "course.yml",
+        "timezone": "Europe/Prague",
         "title": "MicroPython"
     }
 }
