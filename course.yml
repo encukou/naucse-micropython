@@ -9,9 +9,10 @@ long_description: |
 
     Na tento kurz je potřeba obstarat speciální zařízení.
     V Česku se dá sehnat relativně rychle, spolehlivě a draze
-    např. u [Arduino Shop](https://arduino-shop.cz/) nebo
-    [GM Electronic](https://www.gme.cz/);
-    v Cíně levně ale s dlouhou dobou dodání
+    např. u [GM Electronic](https://www.gme.cz/),
+    [RPishop.cz](https://rpishop.cz//) nebo
+    [Drátek.cz](https://dratek.cz/);
+    v Číně levně ale s dlouhou dobou dodání
     např. z [AliExpress](https://www.aliexpress.com/).
 
     Kurz je psaný pro začátečníky, ale potřebuje hlavně ze začátku
@@ -19,10 +20,7 @@ long_description: |
     Doporučujeme proto začít s někým zkušenějším – např. na workshopu
     nebo [na srazu](https://pyvo.cz/).
 
-canonical: true
-vars:
-  coach-present: false
-plan:
+sessions:
 - title: Nastavení zařízení
   serial: 0
   slug: setup
