@@ -20,12 +20,16 @@ long_description: |
     Doporučujeme proto začít s někým zkušenějším – např. na workshopu
     nebo [na srazu](https://pyvo.cz/).
 
+date: 2023-03-04
+timezone: Europe/Prague
+
 sessions:
 - title: Nastavení zařízení
-  serial: 0
+  serial: -1
   slug: setup
   materials:
   - lesson: micropython/flashing
+    title: Flashování (pro organizátory/kouče)
 
 - title: Úvod
   slug: intro
@@ -38,6 +42,10 @@ sessions:
   - lesson: micropython/mpremote
   - lesson: micropython/ampy
   - lesson: micropython/pwm
+  date: 2023-03-04
+  time:
+    start: '8:30'
+    end: '12:00'
 
 - title: Další periferie
   slug: devices
@@ -49,6 +57,14 @@ sessions:
   - lesson: micropython/thermometer
   - lesson: micropython/oled
   - lesson: micropython/motors
+  - title: Krokový motor
+    type: lesson
+  - title: 7-segmentový displej
+    type: lesson
+  date: 2023-03-04
+  time:
+    start: '12:00'
+    end: '17:00'
 
 - title: Komunikace
   slug: comms
