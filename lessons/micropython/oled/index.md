@@ -19,7 +19,7 @@ from machine import Pin, I2C
 from ssd1306 import SSD1306_I2C
 
 # Komunikační protokol I2C a display SSD1306, 128x 64 bodů
-i2c = I2C(scl=Pin(4, Pin.OUT), sda=Pin(5, Pin.OUT))
+i2c = I2C(scl=Pin(4, Pin.OUT), sda=Pin(14, Pin.OUT))
 oled = SSD1306_I2C(width=128, height=64, i2c=i2c, addr=0x3c)
 
 # Různé kreslící příkazy (se objeví až po zavolání show())
