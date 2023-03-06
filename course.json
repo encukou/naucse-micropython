@@ -1,0 +1,838 @@
+{
+    "api_version": [
+        0,
+        4
+    ],
+    "course": {
+        "description": "Základy Pythonu na malém hardware",
+        "edit_info": {
+            "branch": "main",
+            "url": "https://github.com/encukou/naucse-micropython"
+        },
+        "lessons": {
+            "micropython/ampy": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "ampy/index.html"
+                        },
+                        "ids": [
+                            "prace_se_soubory_codeampycode"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#prace_se_soubory_codeampycode",
+                            "naucse:page?lesson=micropython/mpremote"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/ampy/index.md",
+                        "title": "Práce se soubory (ampy)",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/ampy/info.yml",
+                "static_files": {},
+                "title": "Práce se soubory (ampy)"
+            },
+            "micropython/flashing": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "flashing/index.html"
+                        },
+                        "ids": [
+                            "flashovani"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#flashovani",
+                            "https://docs.espressif.com/projects/esptool/en/latest/esp8266/advanced-topics/spi-flash-modes.html",
+                            "https://github.com/espressif/esptool#usage",
+                            "https://micropython.org/download/esp8266/"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/flashing/index.md",
+                        "title": "Flashování",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/flashing/info.yml",
+                "static_files": {
+                    "conf-and-test.py": {
+                        "path": "flashing/conf-and-test.py"
+                    }
+                },
+                "title": "Flashování"
+            },
+            "micropython/input": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "input/index.html"
+                        },
+                        "ids": [
+                            "vstup"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#vstup",
+                            "https://pyvec.github.io/cheatsheets/micropython/nodemcu-cs.pdf"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/input/index.md",
+                        "title": "Vstup",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/input/info.yml",
+                "static_files": {},
+                "title": "Vstup"
+            },
+            "micropython/install": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "install/index.html"
+                        },
+                        "ids": [
+                            "instalace",
+                            "instalace_codempremotecode",
+                            "ostatni_navody"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace",
+                            "#instalace_codempremotecode",
+                            "#ostatni_navody",
+                            "naucse:page?lesson=micropython/install&page=linux",
+                            "naucse:page?lesson=micropython/install&page=macos",
+                            "naucse:page?lesson=micropython/install&page=windows"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/install/index.md",
+                        "title": "Instalace",
+                        "vars": {}
+                    },
+                    "linux": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "install/linux.html"
+                        },
+                        "ids": [
+                            "instalace_pro_linux"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace_pro_linux"
+                        ],
+                        "slug": "linux",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/install/linux.md",
+                        "title": "Instalace – Linux",
+                        "vars": {}
+                    },
+                    "macos": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "install/macos.html"
+                        },
+                        "ids": [
+                            "instalace_pro_macos"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace_pro_macos",
+                            "https://iotta.cz/ovladace-pro-ch340g/",
+                            "https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers"
+                        ],
+                        "slug": "macos",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/install/macos.md",
+                        "title": "Instalace – macOS",
+                        "vars": {}
+                    },
+                    "windows": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "install/windows.html"
+                        },
+                        "ids": [
+                            "instalace_a_nastaveni_putty",
+                            "instalace_ovladace_a_cislo_com_portu",
+                            "instalace_pro_windows"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace_a_nastaveni_putty",
+                            "#instalace_ovladace_a_cislo_com_portu",
+                            "#instalace_pro_windows",
+                            "http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html",
+                            "https://iotta.cz/ovladace-pro-ch340g/",
+                            "https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers",
+                            "naucse:static?filename=putty-config.jpg"
+                        ],
+                        "slug": "windows",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/install/windows.md",
+                        "title": "Instalace – Windows",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/install/info.yml",
+                "static_files": {
+                    "putty-config.jpg": {
+                        "path": "install/putty-config.jpg"
+                    }
+                },
+                "title": "Instalace"
+            },
+            "micropython/intro": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "intro/index.html"
+                        },
+                        "ids": [
+                            "micropython_taky_python",
+                            "ovladani_konzole"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#micropython_taky_python",
+                            "#ovladani_konzole"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/intro/index.md",
+                        "title": "MicroPython – taky Python",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/intro/info.yml",
+                "static_files": {},
+                "title": "MicroPython – taky Python"
+            },
+            "micropython/micropython": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017."
+                        ],
+                        "content": {
+                            "path": "micropython/index.html"
+                        },
+                        "css": ".part-green  { outline: 2px solid hsla(113, 100%, 50%, 1);\n                background-color:  hsla(113, 100%, 50%, 0.25); }\n.part-cyan   { outline: 2px solid hsla(180, 100%, 50%, 1);\n                background-color:  hsla(180, 100%, 50%, 0.25); }\n.part-blue   { outline: 2px solid hsla(236, 100%, 50%, 1);\n                background-color:  hsla(236, 100%, 50%, 0.25); }\n.part-yellow { outline: 2px solid hsla( 60, 100%, 50%, 1);\n                background-color:  hsla( 60, 100%, 50%, 0.25); }\n.part-orange { outline: 2px solid hsla( 42, 100%, 50%, 1);\n                background-color:  hsla( 42, 100%, 50%, 0.25); }\n.part-red    { outline: 2px solid hsla(  0, 100%, 50%, 1);\n                background-color:  hsla(  0, 100%, 50%, 0.25); }\n",
+                        "ids": [
+                            "co_to_tu_mame",
+                            "micropython_na_malem_zarizeni",
+                            "vlastni_nodemcu"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#co_to_tu_mame",
+                            "#micropython_na_malem_zarizeni",
+                            "#vlastni_nodemcu",
+                            "naucse:page?lesson=micropython/flashing",
+                            "naucse:static?filename=nodemcu-devkit.jpg",
+                            "naucse:static?filename=nodemcu-popisky.svg"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/micropython/index.md",
+                        "title": "MicroPython na malém zařízení",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/micropython/info.yml",
+                "static_files": {
+                    "nodemcu-devkit.jpg": {
+                        "path": "micropython/nodemcu-devkit.jpg"
+                    },
+                    "nodemcu-popisky.svg": {
+                        "path": "micropython/nodemcu-popisky.svg"
+                    }
+                },
+                "title": "MicroPython na malém zařízení"
+            },
+            "micropython/motors": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies CZ napsal Petr Viktorin 2019.",
+                            "Diagramy s LED vytvořeny pomocí <a href=\"http://fritzing.org\">Fritzing</a>.",
+                            "Popis NodeMCU pro Fritzing: © 2015 <a href=\"https://blog.squix.org/2015/05/esp8266-nodemcu-v10-part-created-for.html\">Daniel Eichhorn z blog.squix.org</a> pod licencí MIT"
+                        ],
+                        "content": {
+                            "path": "motors/index.html"
+                        },
+                        "ids": [
+                            "motorky",
+                            "ovladani",
+                            "zapojeni"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#motorky",
+                            "#ovladani",
+                            "#zapojeni",
+                            "naucse:static?filename=l293d.svg",
+                            "naucse:static?filename=motors_bb.svg"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/motors/index.md",
+                        "title": "Motorky",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/motors/info.yml",
+                "static_files": {
+                    "l293d.svg": {
+                        "path": "motors/l293d.svg"
+                    },
+                    "motor-template.svg": {
+                        "path": "motors/motor-template.svg"
+                    },
+                    "motors.fzz": {
+                        "path": "motors/motors.fzz"
+                    },
+                    "motors_bb.svg": {
+                        "path": "motors/motors_bb.svg"
+                    }
+                },
+                "title": "Motorky"
+            },
+            "micropython/mpremote": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2022.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "mpremote/index.html"
+                        },
+                        "ids": [
+                            "automaticke_spousteni",
+                            "mazani_a_cteni",
+                            "nahrani_souboru",
+                            "prace_se_soubory"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#automaticke_spousteni",
+                            "#mazani_a_cteni",
+                            "#nahrani_souboru",
+                            "#prace_se_soubory",
+                            "naucse:page?lesson=micropython/ampy",
+                            "naucse:page?lesson=micropython/install"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/mpremote/index.md",
+                        "title": "Práce se soubory (mpremote)",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/mpremote/info.yml",
+                "static_files": {},
+                "title": "Práce se soubory (mpremote)"
+            },
+            "micropython/oled": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies CZ napsal Petr Viktorin, 2019."
+                        ],
+                        "content": {
+                            "path": "oled/index.html"
+                        },
+                        "ids": [
+                            "kod",
+                            "oled_displej",
+                            "zapojeni"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#kod",
+                            "#oled_displej",
+                            "#zapojeni"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/oled/index.md",
+                        "title": "OLED displej",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/oled/info.yml",
+                "static_files": {},
+                "title": "OLED displej"
+            },
+            "micropython/output": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018.",
+                            "Diagramy s LED vytvořeny pomocí <a href=\"http://fritzing.org\">Fritzing</a>.",
+                            "NodeMCU © 2015 <a href=\"https://blog.squix.org/2015/05/esp8266-nodemcu-v10-part-created-for.html\">Daniel Eichhorn z blog.squix.org</a> pod licencí MIT"
+                        ],
+                        "content": {
+                            "path": "output/index.html"
+                        },
+                        "ids": [
+                            "obvod",
+                            "solution-0",
+                            "vystup"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#obvod",
+                            "#vystup",
+                            "https://pyvec.github.io/cheatsheets/micropython/nodemcu-cs.pdf",
+                            "naucse:solution?solution=0",
+                            "naucse:static?filename=circuits/led_bb.svg",
+                            "naucse:static?filename=circuits/led_bb_off.svg"
+                        ],
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<div class=\"highlight\"><pre><span></span><span class=\"kn\">from</span> <span class=\"nn\">machine</span> <span class=\"kn\">import</span> <span class=\"n\">Pin</span>\n<span class=\"n\">pin_diody</span> <span class=\"o\">=</span> <span class=\"n\">Pin</span><span class=\"p\">(</span><span class=\"mi\">14</span><span class=\"p\">,</span> <span class=\"n\">Pin</span><span class=\"o\">.</span><span class=\"n\">OUT</span><span class=\"p\">)</span>\n<span class=\"n\">pin_tlacitka</span> <span class=\"o\">=</span> <span class=\"n\">Pin</span><span class=\"p\">(</span><span class=\"mi\">0</span><span class=\"p\">,</span> <span class=\"n\">Pin</span><span class=\"o\">.</span><span class=\"n\">IN</span><span class=\"p\">)</span>\n<span class=\"k\">while</span> <span class=\"kc\">True</span><span class=\"p\">:</span>\n    <span class=\"n\">pin_diody</span><span class=\"o\">.</span><span class=\"n\">value</span><span class=\"p\">(</span><span class=\"mi\">1</span> <span class=\"o\">-</span> <span class=\"n\">pin_tlacitka</span><span class=\"o\">.</span><span class=\"n\">value</span><span class=\"p\">())</span>\n</pre></div>"
+                            }
+                        ],
+                        "source_file": "lessons/micropython/output/index.md",
+                        "title": "Obvod",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/output/info.yml",
+                "static_files": {
+                    "circuits/led.fzz": {
+                        "path": "output/circuits/led.fzz"
+                    },
+                    "circuits/led_bb.svg": {
+                        "path": "output/circuits/led_bb.svg"
+                    },
+                    "circuits/led_bb_off.svg": {
+                        "path": "output/circuits/led_bb_off.svg"
+                    }
+                },
+                "title": "Obvod"
+            },
+            "micropython/piezo": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "piezo/index.html"
+                        },
+                        "ids": [
+                            "solution-0",
+                            "tony_a_melodie"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#tony_a_melodie",
+                            "https://en.wikipedia.org/wiki/Hertz",
+                            "naucse:solution?solution=0",
+                            "naucse:static?filename=noty.py"
+                        ],
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<p>Ozve se tón!</p>"
+                            }
+                        ],
+                        "source_file": "lessons/micropython/piezo/index.md",
+                        "title": "Tóny a melodie",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/piezo/info.yml",
+                "static_files": {
+                    "noty.py": {
+                        "path": "piezo/noty.py"
+                    }
+                },
+                "title": "Tóny a melodie"
+            },
+            "micropython/pwm": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "pwm/index.html"
+                        },
+                        "ids": [
+                            "solution-0",
+                            "velice_rychle_blikat"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#velice_rychle_blikat",
+                            "naucse:solution?solution=0"
+                        ],
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<p>např.</p>\n<div class=\"highlight\"><pre><span></span><span class=\"kn\">from</span> <span class=\"nn\">machine</span> <span class=\"kn\">import</span> <span class=\"n\">Pin</span>\n<span class=\"kn\">from</span> <span class=\"nn\">time</span> <span class=\"kn\">import</span> <span class=\"n\">sleep</span>\n\n<span class=\"n\">pin_diody</span> <span class=\"o\">=</span> <span class=\"n\">Pin</span><span class=\"p\">(</span><span class=\"mi\">14</span><span class=\"p\">,</span> <span class=\"n\">Pin</span><span class=\"o\">.</span><span class=\"n\">OUT</span><span class=\"p\">)</span>\n\n<span class=\"k\">while</span> <span class=\"kc\">True</span><span class=\"p\">:</span>\n    <span class=\"n\">x</span> <span class=\"o\">=</span> <span class=\"mi\">0</span>\n    <span class=\"k\">while</span> <span class=\"kc\">True</span><span class=\"p\">:</span>\n        <span class=\"n\">x</span> <span class=\"o\">=</span> <span class=\"n\">x</span> <span class=\"o\">+</span> <span class=\"mi\">1</span>\n        <span class=\"n\">pin_diody</span><span class=\"o\">.</span><span class=\"n\">value</span><span class=\"p\">(</span><span class=\"mi\">0</span><span class=\"p\">)</span>\n        <span class=\"n\">sleep</span><span class=\"p\">((</span><span class=\"mi\">100</span><span class=\"o\">-</span><span class=\"n\">x</span><span class=\"p\">)</span> <span class=\"o\">/</span> <span class=\"mi\">10000</span><span class=\"p\">)</span>\n        <span class=\"n\">pin_diody</span><span class=\"o\">.</span><span class=\"n\">value</span><span class=\"p\">(</span><span class=\"mi\">1</span><span class=\"p\">)</span>\n        <span class=\"n\">sleep</span><span class=\"p\">(</span><span class=\"n\">x</span> <span class=\"o\">/</span> <span class=\"mi\">10000</span><span class=\"p\">)</span>\n\n        <span class=\"k\">if</span> <span class=\"n\">x</span> <span class=\"o\">&gt;</span> <span class=\"mi\">100</span><span class=\"p\">:</span>\n            <span class=\"k\">break</span>\n</pre></div><p>Princip je úplně stejný, jen proměnná <code>x</code> se neustále mění a tím ovlivňuje\nintenzitu svícení.</p>"
+                            }
+                        ],
+                        "source_file": "lessons/micropython/pwm/index.md",
+                        "title": "Velice rychle blikat",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/pwm/info.yml",
+                "static_files": {},
+                "title": "Velice rychle blikat"
+            },
+            "micropython/rgb_leds": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "rgb_leds/index.html"
+                        },
+                        "css": ".highlight   { background-color:  hsla(  0, 100%, 50%, 0.1); }\n.highlight-nocolor{ background-color:  hsla( 60, 100%, 50%, 0.75); }\n.highlight-red    { background-color:  hsla(  0, 100%, 50%, 0.25); }\n.highlight-green  { background-color:  hsla(113, 100%, 50%, 0.25); }\n.highlight-blue   { background-color:  hsla(236, 100%, 50%, 0.25); }\n",
+                        "ids": [
+                            "barevna_svetylka"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#barevna_svetylka"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/rgb_leds/index.md",
+                        "title": "Barevná světýlka",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/rgb_leds/info.yml",
+                "static_files": {},
+                "title": "Barevná světýlka"
+            },
+            "micropython/servo": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "servo/index.html"
+                        },
+                        "ids": [
+                            "poznamka_o_napajeni",
+                            "servomotor"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#poznamka_o_napajeni",
+                            "#servomotor"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/servo/index.md",
+                        "title": "Servomotor",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/servo/info.yml",
+                "static_files": {},
+                "title": "Servomotor"
+            },
+            "micropython/socket": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "socket/index.html"
+                        },
+                        "ids": [
+                            "komunikace"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#komunikace",
+                            "http://api.thingspeak.com/channels/1417/field/2/last.txt"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/socket/index.md",
+                        "title": "Komunikace",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/socket/info.yml",
+                "static_files": {},
+                "title": "Komunikace"
+            },
+            "micropython/switch": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "switch/index.html"
+                        },
+                        "ids": [
+                            "dalsi_tlacitko",
+                            "samostatne_tlacitko"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#dalsi_tlacitko",
+                            "#samostatne_tlacitko"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/switch/index.md",
+                        "title": "Další tlačítko",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/switch/info.yml",
+                "static_files": {},
+                "title": "Další tlačítko"
+            },
+            "micropython/thermometer": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies CZ napsal Lumír Balhar 2018.",
+                            "Upravil Petr Viktorin, 2019."
+                        ],
+                        "content": {
+                            "path": "thermometer/index.html"
+                        },
+                        "ids": [
+                            "mereni",
+                            "teplomer",
+                            "zapojeni"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#mereni",
+                            "#teplomer",
+                            "#zapojeni"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/thermometer/index.md",
+                        "title": "Teploměr",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/thermometer/info.yml",
+                "static_files": {},
+                "title": "Teploměr"
+            },
+            "micropython/webrepl": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+                            "Upravil Lumír Balhar, 2018."
+                        ],
+                        "content": {
+                            "path": "webrepl/index.html"
+                        },
+                        "ids": [
+                            "webrepl"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#webrepl",
+                            "http://micropython.org/webrepl/"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/micropython/webrepl/index.md",
+                        "title": "WebREPL",
+                        "vars": {}
+                    }
+                },
+                "source_file": "lessons/micropython/webrepl/info.yml",
+                "static_files": {},
+                "title": "WebREPL"
+            }
+        },
+        "long_description": "<p>Programovací jazyk Python lze použít i pro programování malých zařízení\na k nim připojených tlačítek, světýlek či mororků.\nTady se dozvíš, jak na to.</p>\n<p>Používáme platformu ESP8266, resp. NodeMCU.</p>\n<p>Na tento kurz je potřeba obstarat speciální zařízení.\nV Česku se dá sehnat relativně rychle, spolehlivě a draze\nnapř. u <a href=\"https://www.gme.cz/\">GM Electronic</a>,\n<a href=\"https://rpishop.cz//\">RPishop.cz</a> nebo\n<a href=\"https://dratek.cz/\">Drátek.cz</a>;\nv Číně levně ale s dlouhou dobou dodání\nnapř. z <a href=\"https://www.aliexpress.com/\">AliExpress</a>.</p>\n<p>Kurz je psaný pro začátečníky, ale potřebuje hlavně ze začátku\nrelativně složité nastavení.\nDoporučujeme proto začít s někým zkušenějším – např. na workshopu\nnebo <a href=\"https://pyvo.cz/\">na srazu</a>.</p>",
+        "sessions": [
+            {
+                "materials": [
+                    {
+                        "lesson_slug": "micropython/flashing",
+                        "title": "Flashování",
+                        "type": "lesson"
+                    }
+                ],
+                "serial": "0",
+                "slug": "setup",
+                "source_file": "course.yml",
+                "title": "Nastavení zařízení"
+            },
+            {
+                "materials": [
+                    {
+                        "lesson_slug": "micropython/install",
+                        "title": "Instalace",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/micropython",
+                        "title": "MicroPython na malém zařízení",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/intro",
+                        "title": "MicroPython – taky Python",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/input",
+                        "title": "Vstup",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/output",
+                        "title": "Obvod",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/mpremote",
+                        "title": "Práce se soubory (mpremote)",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/ampy",
+                        "title": "Práce se soubory (ampy)",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/pwm",
+                        "title": "Velice rychle blikat",
+                        "type": "lesson"
+                    }
+                ],
+                "serial": "1",
+                "slug": "intro",
+                "source_file": "course.yml",
+                "title": "Úvod"
+            },
+            {
+                "materials": [
+                    {
+                        "lesson_slug": "micropython/piezo",
+                        "title": "Tóny a melodie",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/switch",
+                        "title": "Další tlačítko",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/rgb_leds",
+                        "title": "Barevná světýlka",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/servo",
+                        "title": "Servomotor",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/thermometer",
+                        "title": "Teploměr",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/oled",
+                        "title": "OLED displej",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/motors",
+                        "title": "Motorky",
+                        "type": "lesson"
+                    }
+                ],
+                "serial": "2",
+                "slug": "devices",
+                "source_file": "course.yml",
+                "title": "Další periferie"
+            },
+            {
+                "materials": [
+                    {
+                        "lesson_slug": "micropython/webrepl",
+                        "title": "WebREPL",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "micropython/socket",
+                        "title": "Komunikace",
+                        "type": "lesson"
+                    }
+                ],
+                "serial": "3",
+                "slug": "comms",
+                "source_file": "course.yml",
+                "title": "Komunikace"
+            }
+        ],
+        "source_file": "course.yml",
+        "title": "MicroPython"
+    }
+}

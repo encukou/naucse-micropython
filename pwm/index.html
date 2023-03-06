@@ -1,0 +1,87 @@
+<h2 id="velice_rychle_blikat">Velice rychle blikat
+<a href="#velice_rychle_blikat" class="header-link">#</a>
+</h2>
+<p>Jedna z nevýhod „našeho” čipu ESP8266 je, že na svých
+nožičkách umí nastavovat jen dvě hodnoty – 3,3 V a zem, jedničku a nulu.
+Dioda tak buď svítí, nebo nesvítí – nedá se
+nastavit poloviční intenzita, nedá se plynule rozsvěcet nebo zhasínat.</p>
+<p>Tuhle nevýhodu ale můžeme obejít s využitím dvou faktů.
+Ten první je, že diodám – na rozdíl od žárovek nebo
+zářivek – nevadí časté vypínání a zapínání.
+Opotřebovávají se spíš svícením a časem.
+Druhý je, že lidské oko nestačí zaznamenat pohyby a
+změny, které trvají míň než zhruba setinu vteřiny.</p>
+<p>Pojďme tedy velice rychle blikat – a oblafnout tak naše oči a mozky!</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="n">pin_diody</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">pin_diody</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># vypnout LED</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># počkat dvě tisíciny vteřiny</span>
+    <span class="n">pin_diody</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># zapnout LED</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># počkat jednu tisícinu vteřiny</span>
+</pre></div><p>Zkus si pohrát s hodnotami pro <code>time.sleep</code>.</p>
+<div class="admonition note"><p>Takhle fungují prakticky všechna stmívatelná LED
+světla – rychlé blikání je ekonomičtější a přesnější
+než např. nastavování nižšího napětí.</p>
+</div><p>Dokážeš napsat program, který diodu postupně, plynule rozsvítí?</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>např.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="n">pin_diody</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">pin_diody</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">((</span><span class="mi">100</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10000</span><span class="p">)</span>
+        <span class="n">pin_diody</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">10000</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="k">break</span>
+</pre></div><p>Princip je úplně stejný, jen proměnná <code>x</code> se neustále mění a tím ovlivňuje
+intenzitu svícení.</p>
+    </div>
+</div><p>Protože je takovéhle rychlé blikání užitečné ve spoustě
+různých situací, obsahuje MicroPython speciální funkci: umí blikat samostatně.
+Nastavíš, jak rychle má blikat a jak dlouho má trvat
+každé bliknutí, a MicroPython pak bude blikat automaticky,
+zatímco tvůj program se může věnovat něčemu jinému.</p>
+<p>Téhle funkci se říká <em>pulzně šířková modulace</em> –
+angl. <em>Pulse Width Modulation</em>, neboli <em>PWM</em>.
+Z MicroPythonu jde tahle funkce ovládat pomocí třídy
+<code>machine.PWM</code>.
+Každý objekt téhle třídy umí ovládat jednu nožičku
+a dají se u něj nastavit dva parametry:</p>
+<ul>
+<li><code>freq</code> – frekvence, tedy kolikrát za sekundu se LED rozsvítí a zase zhasne a</li>
+<li><code>duty</code> – anglicky <em>duty cycle</em>, česky <em>střída</em>, nastavuje „šířku pulzu”,
+tedy jak dlouho bude dioda při každém bliknutí svítit.
+Hodnota <code>duty</code> může být od 0, kdy LED
+nesvítí vůbec, do 1023, kdy svítí celou dobu.
+Nastavíš-li <code>duty=512</code>, bude dioda
+svítit s poloviční intenzitou (512 = 1024/2).</li>
+</ul>
+<p>Nastavíš-li <code>PWM(freq=50, duty=512)</code>, dioda bude blikat 50× za sekundu.
+Vždycky jednu setinu vteřiny bude svítit a na jednu
+setinu vteřiny zhasne.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+
+<span class="n">pin_diody</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">pwm</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">pin_diody</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">duty</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+</pre></div><p>Když budeš chtít frekvenci nebo střídu změnit, použij:</p>
+<div class="highlight"><pre><code>pwm.freq(100)
+pwm.duty(256)</code></pre></div><p>Zkus nastavit i nižší frekvenci, třeba 3 nebo 1, ať blikání vidíš přímo!</p>
+<p>PWM se dá zrušit metodou <code>pwm.deinit()</code>.
+Jako s otvíráním souborů, je dobré po sobě uklidit –
+i když tady můžeš místo toho prostě restartovat celé zařízení.</p>

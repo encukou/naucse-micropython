@@ -1,0 +1,57 @@
+<h1 id="teplomer">Teploměr
+<a href="#teplomer" class="header-link">#</a>
+</h1>
+<p>Ukážeme si jednoduchý teploměr DS18B20.
+Tento teploměr se vyrábí v několika provedeních a je velmi populární především
+pro jednoduchost použití a velmi nízkou cenu.</p>
+<p>Stejně jako si MicroPython pomocí speciálního „jazyka” rozumí s LED páskem,
+ovládá i „jazyk” pro komunikaci s teploměrem a řadou dalších zařízení.
+Tento „jazyk“, protokol sběrnice OneWire, má mimojiné tu výhodu, že se na jednu
+nožičku destičky dá připojit hned několik teploměrů a číst teploty
+z každého z nich.</p>
+<h2 id="zapojeni">Zapojení
+<a href="#zapojeni" class="header-link">#</a>
+</h2>
+<div class="admonition warning"><p>Po zapojení drž teploměr na chvíli mezi prsty.
+Pokud je zapojený špatně, začne se velmi rychle zahřívat.
+V takovém případě jej okamžitě odpoj.</p>
+</div><p>Teploměr potřebuje součástku navíc: <em>rezistor</em> o hodnotě 4.7Ω.
+Zapoj si teploměr do prázdného nepájivého pole, ať se všechno vejde.</p>
+<p>Otoč teploměr tak, aby jeho „břicho” směřovalo směrem od tebe.
+Následně propoj nožičky teploměru s destičkou takto:</p>
+<ul>
+<li>Levou nožičku propoj s <code>GND</code></li>
+<li>Prostřední nožičku propoj s <code>D4</code></li>
+<li>Pravou nožičku propoj s <code>3V3</code></li>
+<li>Mezi prostřední a pravou nožičku (<code>D4</code> a <code>3V3</code>) připoj rezistor
+(na směru nezáleží)</li>
+</ul>
+<h1 id="mereni">Měření
+<a href="#mereni" class="header-link">#</a>
+</h1>
+<p>Pokud je vše zapojeno správně, přistup k měření teploty.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">import</span> <span class="nn">onewire</span>
+<span class="kn">from</span> <span class="nn">ds18x20</span> <span class="kn">import</span> <span class="n">DS18X20</span>
+
+
+<span class="n">pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>  <span class="c1"># D4</span>
+<span class="n">ow</span> <span class="o">=</span> <span class="n">DS18X20</span><span class="p">(</span><span class="n">onewire</span><span class="o">.</span><span class="n">OneWire</span><span class="p">(</span><span class="n">pin</span><span class="p">))</span>
+<span class="n">sensory</span> <span class="o">=</span> <span class="n">ow</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+
+<span class="n">ow</span><span class="o">.</span><span class="n">convert_temp</span><span class="p">()</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">teplota</span> <span class="o">=</span> <span class="n">ow</span><span class="o">.</span><span class="n">read_temp</span><span class="p">(</span><span class="n">sensory</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Teplota je&quot;</span><span class="p">,</span> <span class="n">teplota</span><span class="p">)</span>
+</pre></div><p>Tento kód nejdříve opět připraví nožičku (pin) pro komunikaci a následně na ní
+připraví komunikační protokol OneWire a teploměr DS18X20.
+Prvním krokem k teplotě je nalezení všech dostupných teploměrů na dané
+sběrnici, což nám zajistí metoda <code>ow.scan()</code>,
+která nám vrátí seznam identifikátorů nalezených teploměrů.</p>
+<p>Metoda <code>ow.convert_temp()</code> pak pošle všem teploměrům příkaz, aby změřily
+teplotu.
+Po tomhle rozkazu musíš alespoň vteřinu počkat a následně můžeš
+teplotu z čidla přečíst.</p>
+<p>Zkus teploměr na chvíli chytit mezi prsty, zahřát ho tak, a změřit teplotu
+znovu.</p>

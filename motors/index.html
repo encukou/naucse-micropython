@@ -1,0 +1,91 @@
+<h1 id="motorky">Motorky
+<a href="#motorky" class="header-link">#</a>
+</h1>
+<p>Pojďme ovládat stejnosměrné motory!</p>
+<p>Motory potřebují, na rozdíl od počítače a LED světýlek, celkem hodně elektrické
+energie.
+Navíc můžou dokonce energii vyrábět (fungují jako dynamo).
+Kdybys je připojil/a přímo k destičce, která na tolik proudu není
+připravená, mohla by se destička zničit.</p>
+<p>Představ si náramkové hodninky a traktor: obě zařízení něčím točí (ručičkami
+nebo koly), ale kdybys připojil/a motor z traktoru na mechanismus hodinek,
+moc dlouho by správný čas neukazovaly.
+A motůrek z hodinek by zase nepomohl při orání pole.</p>
+<p>Použijeme čip s názvem L293D, který elektřinu potřebnou pro “hrubou sílu”
+motorku odstíní od logických signálů z destičky.</p>
+<p>Potřebnou energii dodáme z baterií.</p>
+<p>Čip je černá krabička, která na sobě má trochu textu, ale ne dost na to,
+abys poznal/a co dělá.
+To je detailně popsáno v takzvaném <em>datasheetu</em> – PDF, které s truchou štěstí
+vypadne když zadáš „L293D“ do vyhledávače.
+Tam lze najít kompletní popis této součástky včetně diagramu, který ukazuje
+kde najít kterou nožičku:</p>
+<p><span class="figure"><a href="naucse:static?filename=l293d.svg"><img src="naucse:static?filename=l293d.svg" alt="L293D pinout"></a></span></p>
+<p>Všimni si, že nahoře je znázorněné „vykousnutí“ (zde oranžově),
+které najdeš i na součástce.
+Je důležité mít čip správně otočený, jinak nebudeš zapojovat správné nožičky.</p>
+<p>Čip posílá do své nožičky <code>1Y</code> energii z <code>Vpower</code>, pokud je signál na
+<code>1A</code> i <code>1,2EN</code> současně. Jinak nožičku <code>1Y</code> spojí se zemí (<code>GND</code>).
+Podobně pro <code>2Y</code> (<code>2A</code> i <code>1,2EN</code>), <code>3Y</code> (<code>3A</code> i <code>3,4EN</code>), <code>4Y</code> (<code>4A</code> i <code>3,4EN</code>).
+Co to pro nás znamená, je vysvětleno níže.</p>
+<h1 id="zapojeni">Zapojení
+<a href="#zapojeni" class="header-link">#</a>
+</h1>
+<p>Čip a motorky zapoj následovně:</p>
+<ul>
+<li>Napájení<ul>
+<li>V<sub>logic</sub> čipu k 5V – <code>Vin</code> na destičce</li>
+<li>V<sub>power</sub> čipu k <code>+</code> na baterii</li>
+<li>GND (jedno který) čipu k <code>GND</code> na destičce</li>
+<li>GND (jedno který) čipu k <code>-</code> na baterii</li>
+</ul>
+</li>
+<li>První motorek:<ul>
+<li><code>1A</code> čipu na <code>D1</code> na destičce</li>
+<li><code>2A</code> čipu na <code>D2</code> na destičce</li>
+<li><code>1,2EN</code> čipu na <code>D3</code> na destičce</li>
+<li><code>1Y</code> a <code>2Y</code> čipu k dvěma kontaktům motorku</li>
+</ul>
+</li>
+<li>Druhý motorek:<ul>
+<li><code>3A</code> čipu na <code>D6</code> na destičce</li>
+<li><code>4A</code> čipu na <code>D7</code> na destičce</li>
+<li><code>3,4EN</code> čipu na <code>D8</code> na destičce</li>
+<li><code>3Y</code> a <code>4Y</code> čipu k dvěma kontaktům motorku</li>
+</ul>
+</li>
+</ul>
+<p><span class="figure"><a href="naucse:static?filename=motors_bb.svg"><img src="naucse:static?filename=motors_bb.svg" alt="L293D pinout"></a></span></p>
+<h1 id="ovladani">Ovládání
+<a href="#ovladani" class="header-link">#</a>
+</h1>
+<p>Motorek se točí, pokud je na jeho kontaktech rozdíl napětí: pro první motorek
+musí být na <code>1Y</code> jiná hodnota než na <code>2Y</code>.
+Pro obě musí být aktivní nožička <code>1,2EN</code>, a pak <code>1A</code> ovládá <code>1Y</code> a
+<code>2A</code> ovládá <code>2Y</code>.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+
+<span class="n">pin_1a</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>  <span class="c1"># D1 na destičce, 1A na čipu</span>
+<span class="n">pin_2a</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>  <span class="c1"># D2 na destičce, 2A na čipu</span>
+<span class="n">pin_12en</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>  <span class="c1"># D3 na destičce, 1,2EN na čipu</span>
+
+<span class="n">pin_1a</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pin_2a</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pin_12en</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div><p>Když prohodíš hodnoty <code>pin_1a</code> a <code>pin_2a</code>, motorek se začne točit opačným
+směrem.</p>
+<p>Pro nastavení rychlosti otáčení se hodí použít obdélníkovou vlnu, PWM,
+nastavenou na nožičce <code>1,2EN</code>:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+
+<span class="n">pwm_1</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">pin_12en</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">duty</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">pwm_1</span><span class="o">.</span><span class="n">duty</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">pwm_1</span><span class="o">.</span><span class="n">duty</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
+</pre></div><p>Druhý motorek se dá ovládat podobně, jen s jinými čísly pinů.
+Tady jsou:</p>
+<div class="highlight"><pre><span></span><span class="n">pin_3a</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>  <span class="c1"># D6 na destičce, 3A na čipu</span>
+<span class="n">pin_4a</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>  <span class="c1"># D7 na destičce, 4A na čipu</span>
+<span class="n">pin_34en</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>  <span class="c1"># D8 na destičce, 3,4EN na čipu</span>
+</pre></div>

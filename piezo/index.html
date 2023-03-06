@@ -1,0 +1,69 @@
+<h2 id="tony_a_melodie">Tóny a melodie
+<a href="#tony_a_melodie" class="header-link">#</a>
+</h2>
+<p>Vezmi si další součástku – piezobudič, neboli „bzučítko”.</p>
+<p>Tahle malá věc obsahuje speciální materiál, který se,
+když ho připojíš ke zdroji napětí, trošku roztáhne.
+Roztažením zatlačí na okolní vzduch a vytvoří tlakovou
+vlnu, která může doputovat až k tvým uším.</p>
+<p>Zkus si to – když jednu nožičku bzučítka připojíš na <code>GND</code>
+(tentokrát je jedno kterou) a druhou budeš přepojovat mezi <code>3V</code>
+a <code>GND</code>, uslyšíš vždy tiché lupnutí.</p>
+<p>Co se stane, když budeš napětí připojovat a odpojovat, řekněme, 32× za vteřinu?
+Nebo 65×?</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>Ozve se tón!</p>
+    </div>
+</div><p>Zkus si vybrat z následujících frekvencí.·
+Hz – <a href="https://en.wikipedia.org/wiki/Hertz">Hertz</a> – je jednotka frekvence;
+„49 Hz“ znamená „49× za sekundu“, neboli <code>PWM.freq(49)</code>.
+MicroPython umí jen celočíselné frekvence, takže zaokrouhluj.</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Nota </th>
+<th style="text-align:right">Frekvence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C1</td>
+<td style="text-align:right">32,70 Hz</td>
+</tr>
+<tr>
+<td style="text-align:left">D</td>
+<td style="text-align:right">36,71 Hz</td>
+</tr>
+<tr>
+<td style="text-align:left">E</td>
+<td style="text-align:right">41,20 Hz</td>
+</tr>
+<tr>
+<td style="text-align:left">F</td>
+<td style="text-align:right">43,65 Hz</td>
+</tr>
+<tr>
+<td style="text-align:left">G</td>
+<td style="text-align:right">49,00 Hz</td>
+</tr>
+<tr>
+<td style="text-align:left">A</td>
+<td style="text-align:right">55,00 Hz</td>
+</tr>
+<tr>
+<td style="text-align:left">H</td>
+<td style="text-align:right">61,74 Hz</td>
+</tr>
+<tr>
+<td style="text-align:left">C2</td>
+<td style="text-align:right">65,41 Hz</td>
+</tr>
+</tbody>
+</table>
+<p>Teď si můžeš naprogramovat písničku!
+Potřebuješ-li víc not, pusť si <a href="naucse:static?filename=noty.py">program</a>,
+který vypočítá další frekvence.</p>

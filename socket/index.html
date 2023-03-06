@@ -1,0 +1,29 @@
+<h2 id="komunikace">Komunikace
+<a href="#komunikace" class="header-link">#</a>
+</h2>
+<p>Pro komunikaci po síti můžete použít nízkoúrovňovou knihovnu <code>socket</code>,
+nebo protokol pro „internet of things“ (jako MQTT), ale
+MicroPython pro ESP8266 má zabudouvanou i knihovnu pro HTTP:
+ořezanou verzi známých Requests.
+Následující kód stáhne data ze stránky
+<a href="http://api.thingspeak.com/channels/1417/field/2/last.txt">api.thingspeak.com/channels/1417/field/2/last.txt</a>,
+kde se objevuje poslední barva tweetnutá s hashtagem <code>#cheerlights</code>.</p>
+<p>Výslednou hodnotu lze použít jako barvu modul v LED pásku.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urequests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://api.thingspeak.com/channels/1417/field/2/last.txt&#39;</span>
+
+<span class="k">def</span> <span class="nf">download_color</span><span class="p">():</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">urequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+
+    <span class="k">if</span> <span class="n">text</span> <span class="ow">and</span> <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;#&#39;</span><span class="p">:</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+
+        <span class="n">red</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+        <span class="n">green</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+        <span class="n">blue</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</pre></div><p>Opravdové projekty používají lehčí protokoly než HTTP, například MQTT.</p>

@@ -1,0 +1,27 @@
+<h2 id="vstup">Vstup
+<a href="#vstup" class="header-link">#</a>
+</h2>
+<p>MicroPython na malé destičce obsahuje některé
+moduly, které jinde nenajdeš. Ten hlavní se jmenuje
+<code>machine</code> a zpřístupňuje základní funkce zařízení. Zkus si:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="n">pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pin</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+</pre></div><p>Zmáčkni a drž tlačítko <code>FLASH</code> vedle USB konektoru.
+Přitom pusť <code>print(pin.value())</code> znovu.
+Jak se hodnota změní?</p>
+<p>Jak tomuhle kódu rozumět?
+Třída <code>Pin</code> ti umožňuje ovládat jednotlivé
+„nožičky”, kterými zařízení komunikuje s vnějším
+světem: buď na nich nastavovat napětí, nebo zkoumat
+jestli na nich nějaké napětí je.</p>
+<p><code>Pin(0, Pin.IN)</code> vytvoří objekt třídy Pin,
+který bude načítat data z „nožičky” číslo 0.
+(<code>IN</code> znamená načítání – informace jdou <em>do</em> procesoru).
+Funkce <code>pin.value()</code> změří napětí na dané
+„nožičce” a vrátí buď 1 nebo 0 podle toho, jestli nějaké naměřila.</p>
+<p>No a „nožička” číslo 0 je připojená k tlačítku <code>FLASH</code>,
+kterým se tak dá ono napětí ovládat.
+Informace o tom, která nožička je kam připojená,
+máš na <a href="https://pyvec.github.io/cheatsheets/micropython/nodemcu-cs.pdf">taháku</a> –
+můžeš si zkontrolovat, že Pin(0) u sebe má poznámku FLASH.</p>
